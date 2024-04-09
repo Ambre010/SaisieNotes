@@ -8,7 +8,7 @@ export const AccueilScreen: React.FC = () => {
   const navigation = useNavigation();
 
   const handleSaisirNotePress = () => {
-    navigation.navigate('InfoEvaluation' as never);
+    navigation.navigate('InfoEvaluation');
   };
 
   return (
@@ -25,9 +25,9 @@ export const AccueilScreen: React.FC = () => {
       {/* Contenu de la page */}
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <TouchableOpacity
-          onPress={() => handleSaisirNotePress}
+          onPress={() => handleSaisirNotePress()}
           style={{backgroundColor: '#007bff', padding: 15, borderRadius: 10}}>
-          <Text style={{color: 'white', fontSize: 18}}>Saisir une note</Text>
+          <Text style={{color: 'white', fontSize: 18}}>Commencer la saisie</Text>
         </TouchableOpacity>
       </View>
     </View>

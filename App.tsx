@@ -16,7 +16,17 @@ import {InfoEvaluationScreen} from './screens/InfoEvaluationScreen';
 // import { CameraRecoEtudiantScreen } from './screens/CameraRecoEtudiantScreen';
 import {AjoutNoteScreen} from './screens/AjoutNoteScreen';
 
+// // Définition du type de navigation stack
+// export type RootStackParamList = {
+//   Accueil: undefined;
+//   InfoEvaluation: undefined;
+//   // Vous pouvez ajouter d'autres écrans ici si nécessaire
+// };
+
+// const Stack = createStackNavigator<RootStackParamList>();
+
 const Stack = createStackNavigator();
+
 
 const App = () => (
   <NavigationContainer>
