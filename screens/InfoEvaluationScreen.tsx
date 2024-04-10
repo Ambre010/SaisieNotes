@@ -12,9 +12,8 @@ export const InfoEvaluationScreen: React.FC = () => {
   };
 
   const handleStartSaisie = () => {
-    //Rediriger vers l'écran de la caméra
-    // navigation.navigate('CameraRecoEtudiantScreen');
-
+    // Rediriger vers l'écran de la caméra
+    navigation.navigate('CameraRecoTest');
   };
 
   return (

@@ -13,7 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {AccueilScreen} from './screens/AccueilScreen';
 import {InfoEvaluationScreen} from './screens/InfoEvaluationScreen';
-// import { CameraRecoEtudiantScreen } from './screens/CameraRecoEtudiantScreen';
+import { CameraRecoTest } from './screens/CameraRecoTest';
 import {AjoutNoteScreen} from './screens/AjoutNoteScreen';
 
 // // Définition du type de navigation stack
@@ -27,14 +27,13 @@ import {AjoutNoteScreen} from './screens/AjoutNoteScreen';
 
 const Stack = createStackNavigator();
 
-
 const App = () => (
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Accueil" component={AccueilScreen} />
       <Stack.Screen name="InfoEvaluation" component={InfoEvaluationScreen} />
       <Stack.Screen name="AjoutNote" component={AjoutNoteScreen} />
-      {/* <Stack.Screen name="CameraRecoEtudiant" component={CameraRecoEtudiantScreen} /> */}
+      <Stack.Screen name="CameraRecoTest" component={CameraRecoTest} />
     </Stack.Navigator>
   </NavigationContainer>
 )

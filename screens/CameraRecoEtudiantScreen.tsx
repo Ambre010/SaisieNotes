@@ -6,6 +6,7 @@
 //   Text, //Permet d'afficher du texte
 //   TouchableOpacity, //rétroaction tactile lorsqu'il est pressé, comme un bouton
 //   View, //permet de définir une vue dans laquelle les composants peuvent etre inclus
+//   Alert
 // } from 'react-native';
 // import {SafeAreaView} from 'react-native-safe-area-context';
 // import {
@@ -22,7 +23,7 @@
 //     hasPermission: cameraHasPermission, //check de l'autorisation d'utiliser la caméra
 //     requestPermission: requestCameraPermission, //demande l'autorisation de la caméra
 //   } = useCameraPermission();
-//   const device = useCameraDevice('back'); //obtenir la référencedu périphérique de la caméra, back : indique caméra arrière.
+//   const device = useCameraDevice('back'); //obtenir la référence du périphérique de la caméra, back : indique caméra arrière.
 
 //   useEffect(() => {
 //     handleCameraPermission();
@@ -46,14 +47,14 @@
 //     const granted = await requestCameraPermission(); //si caméra autorisée alors granted = TRUE
 
 //     if (!granted) { //Si autorisation pour la caméra non accordée
-//       alert(
+//       Alert.alert(
 //         'Camera permission is required to use the camera. Please grant permission in your device settings.',
 //       );
 //     }
 //   };
 
 //   const showAlert = (value = '', showMoreBtn = true) => {
-//     Alert.alert(
+//     alert(
 //       value,,
 //       showMoreBtn
 //         ? [
