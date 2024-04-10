@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import { Header, Icon } from 'react-native-elements';
+import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackActions } from '@react-navigation/native';
 
@@ -17,23 +16,22 @@ export const InfoEvaluationScreen: React.FC = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      {/* Header */}
-      <Header
-        backgroundColor="#007bff" // Même couleur que AccueilScreen
-        leftComponent={<Icon name="close" type="material" color="white" onPress={handleClose} />}
-        centerComponent={{ text: 'Information Evaluation', style: { color: '#fff', fontSize: 20 } }}
-      />
-
+    <View style={styles.container}>
       {/* Contenu de la page */}
-      <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
+      <View style={styles.textePContainer}>
+        <View style={styles.textePContainer}>
+          <Text style={styles.textePincipal}> Entrez le nom que vous souhaitez donner à cette évaluation.</Text>
+        </View>
         {/* Nom de l'évaluation */}
-        <Text style={{ fontSize: 16, marginBottom: 5 }}>Nom de l'évaluation</Text>
+        <View style={{alignItems:'center'}}>
         <TextInput
           placeholder="Entrez le nom de l'évaluation"
-          style={{ borderWidth: 1, borderColor: 'gray', borderRadius: 5, padding: 10 }}
+          style={styles.textInput}
         />
-
+        </View>
+        <View style={styles.texteSContainer}>
+        <Text style={styles.texteSecondaire}>Maintenant, munissez vous des copies notées, et scannez le premier code barre de l'élève à enregistrer !</Text>
+        </View>
         {/* <Text style={{ fontSize: 16, marginTop: 20, marginBottom: 5 }}>Sélectionnez la matière</Text>
         <Picker
           selectedValue={selectedMatiere}
@@ -46,9 +44,64 @@ export const InfoEvaluationScreen: React.FC = () => {
       </View>
 
       {/* Bouton Commencer la saisie */}
-      <TouchableOpacity onPress={handleStartSaisie} style={{ backgroundColor: '#007bff', paddingVertical: 15, borderRadius: 10, marginHorizontal: 20, marginBottom: 20, alignItems: 'center' }}>
-        <Text style={{ color: 'white', fontSize: 18 }}>Commencer la saisie</Text>
+      <TouchableOpacity onPress={handleStartSaisie} style={styles.button}>
+        <Text style={styles.buttonText}>Scanner le code-barre de l'élève</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  image : {
+    paddingTop: 105,
+  },
+  textInput : {
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 5,
+    padding: 8,
+    marginTop: 55,
+    width: 315,
+  },
+  textePContainer :{
+    marginTop: 20,
+    textAlign:'center',
+    justifyContent: 'space-between',
+  },
+  textePincipal : {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign:'center',
+  },
+  texteSContainer :{
+    marginTop: 340,
+    textAlign:'center',
+  },
+  texteSecondaire : {
+    fontSize: 17,
+    textAlign:'center',
+  },
+  container : {
+    justifyContent: 'space-between',
+    padding: 20,
+    margin: 10,
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal:15,
+  },
+    button : {
+      backgroundColor: '#007bff',
+      padding: 15,
+      borderRadius: 10,
+      width: 315,
+      height: 60,
+      alignItems: 'center',
+      marginBottom:25,
+    },
+    buttonText : {
+      color: 'white',
+      fontSize: 18,
+      verticalAlign:'middle',
+    },
+  }
+);

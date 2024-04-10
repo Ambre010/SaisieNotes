@@ -62,8 +62,8 @@ export const CameraRecoTest: React.FC = () => {
           <Image
             source={
               torchOn
-                ? require('../image/flash_on.png')
-                : require('../image/flash_off.png')
+                ? require('../images/flash_on.png')
+                : require('../images/flash_off.png')
             }
             style={styles.buttonImage}
           />
