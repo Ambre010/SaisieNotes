@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from 'react-native-elements';
+import { Header, Icon } from 'react-native-elements';
 import { StackHeaderProps } from '@react-navigation/stack';
 
 interface CustomHeaderProps extends StackHeaderProps {
