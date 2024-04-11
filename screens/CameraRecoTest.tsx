@@ -2,12 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Camera, useCameraDevice, useCameraPermission, useCodeScanner } from 'react-native-vision-camera';
+import {useNavigation} from '@react-navigation/native';
 
 export const CameraRecoTest: React.FC = () => {
+  const navigation = useNavigation();
   const [torchOn, setTorchOn] = useState(false);
   const [enableOnCodeScanned, setEnableOnCodeScanned] = useState(true);
   const { requestPermission: requestCameraPermission } = useCameraPermission();
   const device = useCameraDevice('back');
+  const [popInAbandonVisible, setPopInAbandonVisible] = useState(false);
+
+  const handleClose = () => {
+    // Logique pour fermer le popup
+    setPopInAbandonVisible(false);
+  }
+
+  const handleNavigateHome = () => {
+    navigation.reset
+    setPopInAbandonVisible(false);
+  }
 
   useEffect(() => {
     handleCameraPermission();
@@ -62,8 +75,8 @@ export const CameraRecoTest: React.FC = () => {
           <Image
             source={
               torchOn
-                ? require('../image/flash_on.png')
-                : require('../image/flash_off.png')
+                ? require('../images/flash_on.png')
+                : require('../images/flash_off.png')
             }
             style={styles.buttonImage}
           />

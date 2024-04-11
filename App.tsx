@@ -1,20 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {AccueilScreen} from './screens/AccueilScreen';
 import {InfoEvaluationScreen} from './screens/InfoEvaluationScreen';
 import { CameraRecoTest } from './screens/CameraRecoTest';
 import {AjoutNoteScreen} from './screens/AjoutNoteScreen';
+import CustomHeader from './components/CustomHeader';
 
 // // Définition du type de navigation stack
 // export type RootStackParamList = {
@@ -25,36 +16,32 @@ import {AjoutNoteScreen} from './screens/AjoutNoteScreen';
 
 // const Stack = createStackNavigator<RootStackParamList>();
 
+
 const Stack = createStackNavigator();
+
 
 const App = () => (
   <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name="Accueil" component={AccueilScreen} />
-      <Stack.Screen name="InfoEvaluation" component={InfoEvaluationScreen} />
+    <Stack.Navigator screenOptions={{
+          header: () => (
+            <CustomHeader
+  title="Saisie Notes UB"
+  showBackButton={false}
+  showCloseButton={false}
+  onBackPress={() => { 
+  }}
+  onClosePress={() => {
+    // Gérer la fermeture
+  }}
+/>
+          ),
+        }}>
+      <Stack.Screen name="Accueil" component={AccueilScreen}  />
+      <Stack.Screen name="InfoEvaluation" component={InfoEvaluationScreen}/>
       <Stack.Screen name="AjoutNote" component={AjoutNoteScreen} />
       <Stack.Screen name="CameraRecoTest" component={CameraRecoTest} />
     </Stack.Navigator>
   </NavigationContainer>
-)
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+);
 
 export default App;
